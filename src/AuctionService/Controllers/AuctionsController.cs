@@ -1,4 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
 using AuctionService.Data;
 using AuctionService.DTOs;
 using AuctionService.Entities;
