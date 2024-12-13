@@ -29,16 +29,16 @@ builder.Services.AddMassTransit(x =>
     {
         cfg.ConfigureEndpoints(context);
     });
-
-    builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options => 
-        {
-            options.Authority = builder.Configuration["identityServiceUrl"];
-            options.RequireHttpsMetadata = false;
-            options.TokenValidationParameters.ValidateAudience = false;
-            options.TokenValidationParameters.NameClaimType = "username";
-        });
 });
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options => 
+    {
+        options.Authority = builder.Configuration["identityServiceUrl"];
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters.ValidateAudience = false;
+        options.TokenValidationParameters.NameClaimType = "username";
+    });
 
 
 var app = builder.Build();
